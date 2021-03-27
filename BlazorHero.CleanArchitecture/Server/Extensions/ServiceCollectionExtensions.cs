@@ -132,8 +132,6 @@ namespace BlazorHero.CleanArchitecture.Server.Extensions
             services.AddTransient<IUserService, UserService>();
 
             services.AddTransient(typeof(IRepositoryAsync<>), typeof(RepositoryAsync<>));
-            services.AddTransient<IProductRepository, ProductRepository>();
-            services.AddTransient<IBrandRepository, BrandRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             return services;
         }

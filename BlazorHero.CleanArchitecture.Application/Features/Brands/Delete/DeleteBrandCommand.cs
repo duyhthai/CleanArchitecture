@@ -2,6 +2,8 @@
 using BlazorHero.CleanArchitecture.Domain.Entities.Catalog;
 using BlazorHero.CleanArchitecture.Shared.Wrapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -13,18 +15,18 @@ namespace BlazorHero.CleanArchitecture.Application.Features.Brands.Delete
 
         public class DeleteBrandCommandHandler : IRequestHandler<DeleteBrandCommand, Result<int>>
         {
-            private readonly IProductRepository _productRepository;
             private readonly IUnitOfWork _unitOfWork;
 
-            public DeleteBrandCommandHandler(IUnitOfWork unitOfWork, IProductRepository productRepository)
+            public DeleteBrandCommandHandler(IUnitOfWork unitOfWork)
             {
                 _unitOfWork = unitOfWork;
-                _productRepository = productRepository;
             }
 
             public async Task<Result<int>> Handle(DeleteBrandCommand command, CancellationToken cancellationToken)
             {
-                var isBrandUsed = await _productRepository.IsBrandUsed(command.Id);
+                var isBrandUsed = await _unitOfWork.Repository<Product>()
+                    .Entities.Where(p => p.BrandId == command.Id).AnyAsync();
+
                 if (!isBrandUsed)
                 {
                     var brand = await _unitOfWork.Repository<Brand>().GetByIdAsync(command.Id);
@@ -34,7 +36,7 @@ namespace BlazorHero.CleanArchitecture.Application.Features.Brands.Delete
                 }
                 else
                 {
-                    return Result<int>.Fail("Deletion Not Allowed");
+                    return Result<int>.Fail("Brand is still in use.");
                 }
             }
         }
