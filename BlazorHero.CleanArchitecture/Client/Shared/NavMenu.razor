@@ -9,9 +9,6 @@
     <MudNavLink Href="/jobs" Icon="@Icons.Material.Outlined.Work">
         @localizer["Hangfire"]
     </MudNavLink>
-    <MudNavLink Href="https://codewithmukesh.com/blog/blazor-hero-quick-start-guide/" Target="_blank" Icon="@Icons.Material.Outlined.ReadMore">
-        @localizer["Quick Start Guide"]
-    </MudNavLink>
     <MudNavLink Href="/swagger/index.html" Target="_blank" Icon="@Icons.Material.Outlined.LiveHelp">
         @localizer["Swagger"]
     </MudNavLink>
@@ -39,13 +36,6 @@
         }
     }
 
-    <MudListSubheader Class="mt-2 mb-n2">@localizer["Communication"]</MudListSubheader>
-    <MudNavLink Href="/chat" Icon="@Icons.Material.Outlined.Chat">
-        @localizer["Chat"]
-    </MudNavLink>
-    <MudNavLink Href="/mail" Icon="@Icons.Material.Outlined.Mail">
-        @localizer["Mail"]
-    </MudNavLink>
     @if (_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Products.View).Result.Succeeded || _authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Brands.View).Result.Succeeded)
     {
         <MudListSubheader Class="mt-2 mb-n2">@localizer["Catalog Management"]</MudListSubheader>
