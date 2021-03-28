@@ -4,18 +4,18 @@ using Serilog;
 
 namespace BlazorHero.CleanArchitecture.Server.Extensions
 {
-    public static class HostBuilderExtensions
-    {
-        public static IHostBuilder UseSerilog(this IHostBuilder builder)
-        {
-            var configuration = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.Development.json")
-                .AddJsonFile("appsettings.json")
-                .AddEnvironmentVariables()
-                .Build();
-            Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(configuration).CreateLogger();
-            SerilogHostBuilderExtensions.UseSerilog(builder);
-            return builder;
-        }
-    }
+	public static class HostBuilderExtensions
+	{
+		public static IHostBuilder UseSerilog(this IHostBuilder builder)
+		{
+			var configuration = new ConfigurationBuilder()
+				.AddJsonFile("appsettings.Development.json")
+				.AddJsonFile("appsettings.json")
+				.AddEnvironmentVariables()
+				.Build();
+			Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(configuration).CreateLogger();
+			SerilogHostBuilderExtensions.UseSerilog(builder);
+			return builder;
+		}
+	}
 }

@@ -1,7 +1,7 @@
 ﻿namespace BlazorHero.CleanArchitecture.Application.Interfaces.Services
 {
-    public interface IDatabaseSeeder
-    {
-        void Initialize();
-    }
+	public interface IDatabaseSeeder
+	{
+		void Initialize();
+	}
 }

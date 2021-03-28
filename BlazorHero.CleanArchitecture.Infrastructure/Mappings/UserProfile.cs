@@ -4,11 +4,11 @@ using BlazorHero.CleanArchitecture.Shared.Models.Identity;
 
 namespace BlazorHero.CleanArchitecture.Infrastructure.Mappings
 {
-    public class UserProfile : Profile
-    {
-        public UserProfile()
-        {
-            CreateMap<UserResponse, BlazorHeroUser>().ReverseMap();
-        }
-    }
+	public class UserProfile : Profile
+	{
+		public UserProfile()
+		{
+			CreateMap<UserResponse, BlazorHeroUser>().ReverseMap();
+		}
+	}
 }

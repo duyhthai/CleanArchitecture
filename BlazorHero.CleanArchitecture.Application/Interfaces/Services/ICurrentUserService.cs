@@ -2,8 +2,8 @@
 
 namespace BlazorHero.CleanArchitecture.Application.Interfaces.Services
 {
-    public interface ICurrentUserService : IService
-    {
-        string UserId { get; }
-    }
+	public interface ICurrentUserService : IService
+	{
+		string UserId { get; }
+	}
 }

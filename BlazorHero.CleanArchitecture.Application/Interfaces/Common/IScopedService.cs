@@ -1,6 +1,6 @@
 ﻿namespace BlazorHero.CleanArchitecture.Application.Interfaces.Common
 {
-    public interface IScopedService
-    {
-    }
+	public interface IScopedService
+	{
+	}
 }

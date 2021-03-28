@@ -2,8 +2,8 @@
 
 namespace BlazorHero.CleanArchitecture.Application.Responses.Identity
 {
-    public class GetAllRolesResponse
-    {
-        public IEnumerable<RoleResponse> Roles { get; set; }
-    }
+	public class GetAllRolesResponse
+	{
+		public IEnumerable<RoleResponse> Roles { get; set; }
+	}
 }

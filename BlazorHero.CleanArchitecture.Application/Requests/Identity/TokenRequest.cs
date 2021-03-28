@@ -2,12 +2,12 @@
 
 namespace BlazorHero.CleanArchitecture.Application.Requests.Identity
 {
-    public class TokenRequest
-    {
-        [Required]
-        public string Email { get; set; }
+	public class TokenRequest
+	{
+		[Required]
+		public string Email { get; set; }
 
-        [Required]
-        public string Password { get; set; }
-    }
+		[Required]
+		public string Password { get; set; }
+	}
 }
